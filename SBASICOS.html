@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="MyApp">
+<head>
+   <meta charset="UTF-8">
+   <title>AngularJS</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
+  	<script src="TablasController.js"></script>
+</head>
+<body>
+   <div ng-controller="TablasController">
+      
+         <h3>Sueldos Básicos </h3>
+         <ul>
+            <li ng-repeat="tablas in basicos.sueldosbasicos">
+               {{tablas.id}}
+               {{tablas.text}}
+               {{tablas.importe}}
+               {{tablas.importe}}
+               <a href={{tablas.link}}>{{tablas.link}}</a>
+
+               <input type="checkbox" name="{{id}}" value="{{tablas.id}}"> I have a bike<br>
+            </li>
+         </ul>
+      </div>
+      <button>Responder</button>
+      {{id}}
+
+   </div>
+</body>
+</html>
+
+Mostramos el objeto pregunta en la vista y para mostrar las claves hacemos uso de la directiva ng-repeat que nos permite iterar el array de objetos “respuestas”, dentro de cada clave mostramos la variable “text” que contiene el texto de la respuesta.
+Ahora agregaremos funcionalidad para marcar una clave, para lo cual necesitamos de la directiva ng-click que lo añadimos dentro de cada elemento de la lista.
+

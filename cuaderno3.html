@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+	    <meta charset="utf-8">
+		<title>Cuaderno Alumnos</title>
+	
+                <link rel="stylesheet" type="text/css" href="style.css"> 
+
+	</head>
+ 		<body ng-controller="AlumnosController">
+            <h1>Cuaderno Alumnos</h1>	
+	   <div  ng-init="total = 0"</div>
+
+	    <div class="wrapper">
+		<div class="contact-item" ng-repeat="alumno in alumnos| orderBy:'nombre'">
+			<div class="nombre">{{alumno.nombre}} - {{alumno.telefono}} - {{alumno.edad}}</div>
+			
+			<span class="curso">{{alumno.curso}} </span>
+		<div ng-init="$parent.total = "$parent.total +(alumno.edad)"> 
+		</div>
+	     </div>	
+	     <b>{{ total }}</b>
+	<br/>
+        <center><button ng-click="ShowForm()" ng-hide="formVisibility"> Añadir Contacto</button></center>
+	<div ng-show="formVisibility" class="wrapper">
+		<h2>Añadir un Contacto</h2>
+		Nombre: <input type="text" ng-model="nuevoAlumno.nombre"></input>
+		Telefono: <input type="text" ng-model="nuevoAlumno.telefono"></input>
+		Curso: <input type="text" ng-model="nuevoAlumno.curso"></input>
+		<button ng-click="Save()">Guardar</button>
+	</div>	
+
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+     <script src="AlumnosController.js" type = "text/javascript"></script>
+     
+	
+
+
+	</body>
+</html>

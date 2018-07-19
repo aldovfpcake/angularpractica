@@ -1,0 +1,61 @@
+   <asp:GridView ID="GridView1" runat ="server" BackColor="#3366FF" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Width="881px" CaptionAlign="Right" CssClass="alert-warning" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCommand="GridView1_RowCommand">
+                                 <Columns>
+                                     <asp:HyperLinkField DataNavigateUrlFields="id" Text="EDITAR" DataNavigateUrlFormatString="FmEdicionProov.aspx?id={0}" DataTextField="id" />
+<asp:TemplateField><ItemTemplate>
+                                  <asp:Button ID="AddButton" runat="server" 
+                                  CommandName ="AddToCart" 
+                                  CommandArgument= "<%# ((GridViewRow) Container).RowIndex %>"
+                                  Text ="Add to Cart" />
+                                  
+</ItemTemplate>
+</asp:TemplateField>
+                                 </Columns>
+                                 
+                                 <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                                 <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                                 <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                                 <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                                 <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                                 <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                                 <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                                 <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                                 <SortedDescendingHeaderStyle BackColor="#93451F" />
+                                 
+ 
+                                </asp:GridView>                 
+                                              
+
+
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Label3.Text = GridView1.SelectedRow.Cells[3].Text;
+            
+
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+           
+
+            if (e.CommandName == "AddToCart")
+            {
+                Int32 nRowIndex = Convert.ToInt32(e.CommandArgument.ToString());
+                String txt = " ";
+                txt = GridView1.SelectedValue.ToString();
+
+                Label1.Text = "Command Name: " + e.CommandName;
+                Label2.Text = "Row Index: " + nRowIndex;
+                 
+            }
+
+           }
+
+        protected void Select(object sender, EventArgs e)
+        {
+            string rowIndex = (sender as Button).CommandArgument;
+            int fila = Int32.Parse(rowIndex);
+             ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('Row Index: " + rowIndex + "');", true);
+        }
+
+
+                                            

@@ -1,0 +1,21 @@
+var myApp = angular.module('myApp',[]);
+
+myApp.service('dataService', function($http) {
+delete $http.defaults.headers.common['X-Requested-With'];
+this.getData = function() {
+    $http({
+        method: 'GET',
+        url: 'https://www.example.com/api/v1/page',
+        params: 'limit=10, sort_by=created:desc',
+        headers: {'Authorization': 'Token token=xxxxYYYYZzzz'}
+     }).success(function(data){
+         return data
+    }).error(function(){
+        alert("error");
+    });
+ }
+});
+
+myApp.controller('AngularJSCtrl', function($scope, dataService) {
+  $scope.data = dataService.getData();
+});

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<div ng-app="" ng-controller="namesController">
+ 
+<p>Input con filtro:</p>
+ 
+<p><input type="text" ng-model="nombre"></p>
+ 
+<ul>
+  <li ng-repeat="x in nombres | filter:nombre | orderBy:'provincia'">
+    {{ (x.nombre | uppercase) + ', ' + x.provincia }}
+  </li>
+</ul>
+ 
+</div>
+ 
+<script>function namesController($scope) {
+    $scope.nombres = [
+        {nombre:'Maria',provincia:'Córdoba'},
+        {nombre:'Jose',provincia:'Barcelona'},
+        {nombre:'Antonio',provincia:'Madrid'},
+        {nombre:'Ana',provincia:'Huelva'},
+        {nombre:'Juan',provincia:'Jaen'},
+        {nombre:'Raquel',provincia:'Orense'}
+    ];
+}</script>
+ 
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+ 
+</body>
+</html>

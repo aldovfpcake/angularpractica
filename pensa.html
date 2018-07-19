@@ -1,0 +1,49 @@
+
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+<div class="container">
+
+<div ng-app ng-init="pensamientos = [];">
+    <h1>Altavoz AngularJS</h1>
+    <p>
+        <P>Sueldo Básico </P>
+        <br />
+		<input type="text"value =0 ng-model="val"/>
+     
+     <table class="table">
+    <thead>    
+    <tr>
+      <th> Descripción </th>
+      <th> Importe </th>
+    </tr>
+    <tbody>
+       <tr> 
+       <td>Jubilacion </td>
+       <td>{{mat.round(val *0.11,2)}}</td>
+       </tr>
+       <td> Obra social </td>
+       <td>{{mat.round(val *0.03,2)}}</td>
+       </tr>
+       <td> Ley 19032  </td>
+       <td>{{mat.round(val *0.03,2)}}</td>
+       </tr>
+       <td> Sindicato</td>
+       <td>{{mat.round(val *0.03,2)}}</td>
+       </tr>
+       <td> Total Descuentos  </td>
+       <td>{{mat.round(val *0.20,2)}}</td>
+       </tr>
+   </tbody> 
+      <br>
+    <p> Sueldo Neto        :{{val- val*0.20}}<p>	
+	</div> 
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>

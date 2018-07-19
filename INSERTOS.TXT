@@ -1,0 +1,71 @@
+INSERT INTO TBPROVEEDOR(CUENTA,RSOCIAL,RESUM,LOCALIDAD,CODPOSTAL,PROVIN,CUIT,TIPOIVA,CONTAB,CONTAB1,CALLE,NRO)
+VALUES(1,'YACO S.R.L.'.'YACO' ,'CAPITAL FEDERAL','1801','CAPITAL FEDERAL','30-51640352-3',1,'1.100.100.2','2.100.100.3','AVDA SARMIENTO',1501)
+
+
+CREATE TABLE [dbo].[prueba]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [cuenta] INT NULL, 
+    
+)
+
+
+
+CREATE TABLE [dbo].[prueba2]
+(
+	 ID int IDENTITY(1,1) PRIMARY KEY,
+    [cuenta] INT NULL, 
+    
+)
+
+
+CREATE TABLE [dbo].[Proveedor] (
+     ID int IDENTITY(1,1) PRIMARY KEY,
+    [cuenta]    INT          NOT NULL,
+    [rsocial]   VARCHAR (50) NOT NULL,
+    [resum]     VARCHAR (25) NOT NULL,
+    [localidad] VARCHAR (50) NOT NULL,
+    [codpostal] VARCHAR (50) NOT NULL,
+    [provin]    VARCHAR (50) NOT NULL,
+    [cuit]      VARCHAR (10) NOT NULL,
+    [tipoiva]   INT          NOT NULL,
+    [contab]    VARCHAR (14) NOT NULL,
+    [contab1]   VARCHAR (14) NOT NULL,
+    [calle]     VARCHAR (50) NOT NULL,
+    [nro]       INT          NOT NULL,
+    )
+
+
+INSERT INTO PROVEEDOR (cuenta,rsocial,resum,localidad,codpostal,provin,cuit,contab,contab1,calle,tipoiva,nro)
+VALUES(1,'YACO INDUSTRIAS','YACO','SAN MARTIN','1650','BUENOS AIRES','305164033','1.1.100.102','2.1.100.102','CALLE 53',1,6350) 
+
+ Clnegocio Pl = new Clnegocio();
+            IEnumerable<Proveedor> listado = new List<Proveedor>();
+            
+             Pl.listar();
+             foreach (var listapro in Pl.lista)
+            {
+
+                Response.Write("hello" + listapro.ToArray );
+                    }
+
+            if (!this.IsPostBack)
+            {
+                DataTable dt = new DataTable();
+                dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Id", typeof(int)),
+                            new DataColumn("Name", typeof(string)),
+                            new DataColumn("Country",typeof(string)) });
+
+                int i = 1;
+                                
+                foreach (var listapro in listado )
+                {
+                    // dt.Rows.Add(listapro.id, listrapro.rsocial, listapro.provin);//
+                    dt.Rows.Add(listapro.ID);
+                }
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+                
+            }
+
+    

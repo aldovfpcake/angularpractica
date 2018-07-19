@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title> </title>
+
+<style type="text/css">
+canvas{
+border:solid;
+}
+</style>
+</head><body>
+<br>
+<canvas id="micanvas">
+tu navegador no soporta canvas
+</canvas>
+<script>
+
+   window.addEventListener('load',init);
+     function init(){
+	      if (window.sessionStorage && window.localStorage) 
+		    { alert("Su dispositivo permite utilizar almacenamiento local."); }
+		 else 
+		    { alert("Su dispositivo no soporta el uso de Web Storage.")}; 
+	     var canvas = document.querySelector('#micanvas') ;
+         console.log(canvas);
+         var ctx = canvas.getContext('2d');
+         console.log(ctx);
+		 ctx.fillStyle = 'Red';
+		 ctx.fillRect(20,20,50,50);
+		 ctx.globalAlpha = 0.1;
+		 ctx.strokeStyle = 'rgb(0,0,200)';
+		 ctx.lineWidth = 10;
+		 ctx.strokeRect(90,90,50,50);
+		 }
+</script>
+</body></html>

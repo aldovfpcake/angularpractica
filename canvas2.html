@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title> </title>
+
+<style type="text/css">
+canvas{
+border:solid;
+}
+</style>
+</head><body>
+<br>
+<canvas id="micanvas">
+tu navegador no soporta canvas
+</canvas>
+<script>
+
+   window.addEventListener('load',init);
+     function init(){
+         var canvas = document.querySelector('#micanvas') ;
+         console.log(canvas);
+         var ctx = canvas.getContext('2d');
+         var x = 10, y= 10, ancho = 20, alto = 40
+         ctx.fillRect(x,y,ancho,alto);
+         ctx.strokeRect(x+20,y+20,ancho,alto);
+         ctx.clearRect(x,y,canvas.with,canvas.height);
+         erase(canvas,ctx);
+		 }
+
+      function erase(canvas,ctx)
+      {
+         ctx.clearRect(0,0,canvas.with,canvas.height);  
+
+      }     
+
+
+</script>
+</body></html>
